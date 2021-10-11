@@ -1,0 +1,46 @@
+{
+  "name": "vscode-typed-theme-generator",
+  "description": "VSCode strong typing theme generator",
+  "version": "1.0.0",
+  "author": "t7yang <t7yang@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:t7yang/vscode-theme-generator.git"
+  },
+  "keywords": [
+    "VSCode",
+    "theme",
+    "generator",
+    "TypeScript"
+  ],
+  "sideEffect": false,
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/es/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "lint": "prettier src -w -u",
+    "clean": "rm -fr dist",
+    "build:dts": "tsc --emitDeclarationOnly",
+    "build:es": "swc src -d dist/es --config-file .swcrc",
+    "build:cjs": "swc src -d dist/cjs --config-file .swcrc -C module.type=commonjs",
+    "build:fresh": "yarn clean && yarn build:es && yarn build:cjs && yarn build:dts"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@swc/cli": "^0.1.51",
+    "@swc/core": "^1.2.95",
+    "@types/node": "^16.10.3",
+    "browserslist": "^4.17.3"
+  }
+}

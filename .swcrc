@@ -1,0 +1,19 @@
+{
+  "module": {
+    "type": "es6",
+    "lazy": true
+  },
+  "env": { "path": "." },
+  "jsc": {
+    "parser": {
+      "syntax": "typescript"
+    },
+    "minify": {
+      "compress": {
+        "unused": true
+      }
+    }
+  },
+  "sourceMaps": true,
+  "minify": false
+}
