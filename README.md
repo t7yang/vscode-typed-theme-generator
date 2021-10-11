@@ -118,6 +118,10 @@ Setup the `scripts` in package.json.
 }
 ```
 
+## Example
+
+A real world example is my theme [Dark Lavender](https://github.com/t7yang/dark-lavender).
+
 ## Features
 
 VTTG provides several nice feature to help you build your VSCode theme.
