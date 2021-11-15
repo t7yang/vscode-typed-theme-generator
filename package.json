@@ -21,7 +21,8 @@
   "types": "dist/index.d.ts",
   "exports": {
     "import": "./dist/es/index.js",
-    "require": "./dist/cjs/index.js"
+    "require": "./dist/cjs/index.js",
+    "types": "./dist/index.d.ts"
   },
   "engines": {
     "node": ">=12.0.0"
