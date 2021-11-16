@@ -1,7 +1,7 @@
 import { TokenColor } from './token-colors';
 import { UiColor } from './ui-colors';
 
-type ObjKey = string | number;
+type ObjKey = string;
 export type VariantColor<Label extends ObjKey, Var extends ObjKey> = Record<Label, Record<Var, string>>;
 export type VariantVariable<Var extends ObjKey> = Record<Var, Var>;
 
