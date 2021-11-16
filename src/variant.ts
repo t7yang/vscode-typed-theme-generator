@@ -1,4 +1,5 @@
 import { TokenColor } from './token-colors';
+import { extractVarAndAlpha, isHex, isVariableWithAlpha, transparent } from './transparent';
 import { UiColor } from './ui-colors';
 
 type ObjKey = string;
@@ -35,9 +36,18 @@ export const createVariantUiColor = <Label extends ObjKey, Var extends ObjKey>(
   Object.entries(variants).forEach(variantEntry => {
     const [label, VAR] = variantEntry as [Label, typeof variants[Label]];
     const themeUiColor = variantUiColor[label];
+
     Object.entries(themeUiColor).forEach(themeEntry => {
       const [uiToken, color] = themeEntry as [keyof UiColor, string];
-      VAR[color as Var] && (themeUiColor[uiToken] = VAR[color as Var]);
+
+      if (!isHex(color)) {
+        const { variable, alpha } = isVariableWithAlpha(color)
+          ? extractVarAndAlpha(color)
+          : { variable: color, alpha: '' };
+
+        VAR[variable as Var] &&
+          (themeUiColor[uiToken] = alpha ? transparent(VAR[variable as Var], alpha) : VAR[variable as Var]);
+      }
     });
   });
 
@@ -60,10 +70,19 @@ export const createVariantTokenColors = <Label extends ObjKey, Var extends ObjKe
 
   Object.entries(variants).forEach(variantEntry => {
     const [label, VAR] = variantEntry as [Label, typeof variants[Label]];
+
     variantTokenColors[label].forEach(tokenColor => {
-      tokenColor.settings.foreground &&
-        VAR[tokenColor.settings.foreground as Var] &&
-        (tokenColor.settings = { ...tokenColor.settings, foreground: VAR[tokenColor.settings.foreground as Var] });
+      if (tokenColor.settings.foreground && !isHex(tokenColor.settings.foreground)) {
+        const { variable, alpha } = isVariableWithAlpha(tokenColor.settings.foreground)
+          ? extractVarAndAlpha(tokenColor.settings.foreground)
+          : { variable: tokenColor.settings.foreground, alpha: '' };
+
+        VAR[variable as Var] &&
+          (tokenColor.settings = {
+            ...tokenColor.settings,
+            foreground: alpha ? transparent(VAR[variable as Var], alpha) : VAR[variable as Var],
+          });
+      }
     });
   });
 
