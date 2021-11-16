@@ -23,13 +23,14 @@ import {
   createVsCodeTheme,
   CreateVsCodeThemeConfig,
   TokenColor,
+  transparent,
   UiColor,
   VsCodeThemeMeta,
   UiColor,
 } from 'vscode-typed-theme-generator';
 
 // if you want to create several themes with difference color based
-const [variant, vVar] = createVariant({
+const [variant, Variable] = createVariant({
   default: { bg1: '#07090F', bg2: '#17191F' },
   black: { bg1: '#010109', bg2: '#111119' },
 });
@@ -39,10 +40,12 @@ const [variant, vVar] = createVariant({
 const uiColor: UiColor = {
   focusBorder: md.deepPurple.A700,
   foreground: md.blueGrey[100],
-  errorForeground: md.pink[700],
-  'icon.foreground': md.deepPurple.A100,
-  'list.inactiveSelectionBackground': vVar.bg2,
-  'activityBar.background': vVar.bg1,
+  // transparent helper function help you add alpha value to hex color
+  errorForeground: transparent(md.pink[700], 0.5),
+  'icon.foreground': transparent(md.deepPurple.A100, '33'),
+  // transparent function even support variable
+  'list.inactiveSelectionBackground': transparent(Variable.bg2, 0.7),
+  'activityBar.background': Variable.bg1,
   // ...more UI color tokens
 };
 
