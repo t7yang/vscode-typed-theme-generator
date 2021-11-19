@@ -9,6 +9,13 @@ $ npm install vscode-typed-theme-generator
 $ yarn add vscode-typed-theme-generator
 ```
 
+## Features
+
+- Design your theme with TypeScript and well type defination including every property information (hovering).
+- Support generate variant colors theme and variable.
+- Provide a helper function to add alpha (in rgba) to color and even variable.
+- Regenerate themes after edited (watch mode) with `ts-node-dev` add update contribution field in `package.json`.
+
 ## Usage
 
 You can first using VSCode's yeoman [extension generator](https://code.visualstudio.com/docs/getstarted/themes#_creating-your-own-color-theme) to help you generate a skeleton of your theme project.
