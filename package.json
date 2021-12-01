@@ -31,6 +31,7 @@
     "update": "yarn upgrade-interactive",
     "lint": "prettier src -w -u",
     "clean": "rm -fr dist",
+    "test:tsc": "tsc --noEmit",
     "build:dts": "tsc --emitDeclarationOnly",
     "build:es": "swc src -d dist/es --config-file .swcrc",
     "build:cjs": "swc src -d dist/cjs --config-file .swcrc -C module.type=commonjs",
