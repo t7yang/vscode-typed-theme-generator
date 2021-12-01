@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.1.0...1.2.0) (2021-12-01)
+
+
+### Features
+
+* add support for create variant semantic token colors ([dd0d33b](https://github.com/t7yang/vscode-typed-theme-generator/commit/dd0d33b08cc1d7f3c4de137f7d769d12d3896489))
+
 ## [1.1.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.0.0...1.1.0) (2021-11-16)
 
 
