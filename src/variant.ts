@@ -1,3 +1,5 @@
+import { TokenColorSetting } from '.';
+import { SemanticTokenColors } from './semantic-token-colors';
 import { TokenColor } from './token-colors';
 import { extractVarAndAlpha, isHex, isVariableWithAlpha, transparent } from './transparent';
 import { UiColor } from './ui-colors';
@@ -59,7 +61,7 @@ export const createVariantUiColor = <Label extends ObjKey, Var extends ObjKey>(
 /**
  * create variant syntax color tokens
  * @param tokenColors defined syntax color tokens
- * @param variants varaint color variable return by createVariant function
+ * @param variants variant color variable return by createVariant function
  * @returns variant color based syntax color tokens
  */
 export const createVariantTokenColors = <Label extends ObjKey, Var extends ObjKey>(
@@ -82,4 +84,42 @@ export const createVariantTokenColors = <Label extends ObjKey, Var extends ObjKe
   });
 
   return variantTokenColors;
+};
+
+/**
+ * create variant semantic token colors
+ * @param stc defined semantic token colors
+ * @param variants variant color variable return by createVariant function
+ * @returns variant color based semantic token colors
+ */
+export const createVariantSemanticTokenColors = <Label extends ObjKey, Var extends ObjKey>(
+  stc: SemanticTokenColors,
+  variants: VariantColor<Label, Var>,
+): Record<Label, SemanticTokenColors> => {
+  const variantStc = Object.fromEntries(Object.keys(variants).map(v => [v, { ...stc }])) as Record<
+    Label,
+    SemanticTokenColors
+  >;
+
+  Object.entries(variants).forEach(variantEntry => {
+    const [label, VAR] = variantEntry as [Label, typeof variants[Label]];
+    const semanticColors: SemanticTokenColors = variantStc[label];
+
+    Object.entries(semanticColors).forEach(entry => {
+      const [semanticToken, tokenValue] = entry as [string, SemanticTokenColors[string]];
+
+      if (typeof tokenValue === 'string' && !isHex(tokenValue)) {
+        const color = varToColor(tokenValue, VAR);
+        color && (semanticColors[semanticToken] = color);
+      } else if (
+        typeof (tokenValue as TokenColorSetting).foreground === 'string' &&
+        !isHex((tokenValue as TokenColorSetting).foreground ?? '')
+      ) {
+        const color = varToColor((tokenValue as TokenColorSetting).foreground!, VAR);
+        Object.assign(semanticColors[semanticToken] as TokenColorSetting, { foreground: color });
+      }
+    });
+  });
+
+  return variantStc;
 };

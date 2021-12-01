@@ -1,3 +1,4 @@
+import { SemanticTokenColors } from './semantic-token-colors';
 import { TokenColor } from './token-colors';
 import { UiColor } from './ui-colors';
 
@@ -18,7 +19,7 @@ export interface VsCodeTheme {
    *
    * ref: {@link https://github.com/microsoft/vscode/blob/main/src/vs/platform/theme/common/tokenClassificationRegistry.ts#L506-L559}
    */
-  semanticTokenColors?: Record<string, string>;
+  semanticTokenColors?: SemanticTokenColors;
 }
 
 export interface VsCodeThemeMeta
