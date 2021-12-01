@@ -18,6 +18,12 @@ export const createVariant = <Label extends ObjKey, Var extends ObjKey>(
   return [variants, (VAR ? Object.fromEntries(Object.keys(VAR).map(key => [key, key])) : {}) as VariantVariable<Var>];
 };
 
+const varToColor = <Var extends string>(vari: string, VAR: Record<Var, string>): string | null => {
+  const { variable, alpha } = isVariableWithAlpha(vari) ? extractVarAndAlpha(vari) : { variable: vari, alpha: '' };
+  const color: string | undefined = VAR[variable as Var];
+  return typeof color !== 'string' ? null : alpha ? transparent(color, alpha) : color;
+};
+
 /**
  * create variant UI color tokens
  * @param uiColor defined UI color tokens
@@ -38,15 +44,11 @@ export const createVariantUiColor = <Label extends ObjKey, Var extends ObjKey>(
     const themeUiColor = variantUiColor[label];
 
     Object.entries(themeUiColor).forEach(themeEntry => {
-      const [uiToken, color] = themeEntry as [keyof UiColor, string];
+      const [uiToken, tokenValue] = themeEntry as [keyof UiColor, string];
 
-      if (!isHex(color)) {
-        const { variable, alpha } = isVariableWithAlpha(color)
-          ? extractVarAndAlpha(color)
-          : { variable: color, alpha: '' };
-
-        VAR[variable as Var] &&
-          (themeUiColor[uiToken] = alpha ? transparent(VAR[variable as Var], alpha) : VAR[variable as Var]);
+      if (!isHex(tokenValue)) {
+        const color = varToColor(tokenValue, VAR);
+        color && (themeUiColor[uiToken] = color);
       }
     });
   });
@@ -73,15 +75,8 @@ export const createVariantTokenColors = <Label extends ObjKey, Var extends ObjKe
 
     variantTokenColors[label].forEach(tokenColor => {
       if (tokenColor.settings.foreground && !isHex(tokenColor.settings.foreground)) {
-        const { variable, alpha } = isVariableWithAlpha(tokenColor.settings.foreground)
-          ? extractVarAndAlpha(tokenColor.settings.foreground)
-          : { variable: tokenColor.settings.foreground, alpha: '' };
-
-        VAR[variable as Var] &&
-          (tokenColor.settings = {
-            ...tokenColor.settings,
-            foreground: alpha ? transparent(VAR[variable as Var], alpha) : VAR[variable as Var],
-          });
+        const color = varToColor(tokenColor.settings.foreground, VAR);
+        color && Object.assign(tokenColor.settings, { foreground: color });
       }
     });
   });
