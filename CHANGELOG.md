@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.2.0...1.3.0) (2021-12-03)
+
+
+### Features
+
+* export semantic token types and modifiers enum. ([c8b0f34](https://github.com/t7yang/vscode-typed-theme-generator/commit/c8b0f34c3c5758a9173c1c7ccd8e18a22d33afb3))
+
 ## [1.2.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.1.0...1.2.0) (2021-12-01)
 
 
