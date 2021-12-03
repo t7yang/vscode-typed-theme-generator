@@ -29,6 +29,7 @@ import {
   createVariantUiColor,
   createVsCodeTheme,
   CreateVsCodeThemeConfig,
+  SemanticTokenColors,
   TokenColor,
   transparent,
   UiColor,
@@ -73,6 +74,11 @@ const tokenColors: TokenColor[] = [
   // ...more syntax color tokens
 ];
 
+// support semantic token color types (1.2.0), token types and tokens modifiers enum (1.3.0)
+const semanticTokenColors: SemanticTokenColors = {
+  [`${Type.variable}.${Mod.readonly}.javascript`]: md.blue[500]
+}
+
 // extract the variant labels
 type VariantKey = keyof typeof variantUiColor;
 
@@ -99,6 +105,7 @@ const config: CreateVsCodeThemeConfig = {
       theme: {
         name: names[variant],
         semanticHighlighting: true,
+        semanticTokenColors,
         colors: uiColor,
         tokenColors,
       },
