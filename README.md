@@ -11,8 +11,8 @@ $ yarn add vscode-typed-theme-generator
 
 ## Features
 
-- Design your theme with TypeScript and well type defination including every property information (hovering).
-- Support generate variant colors theme and variable.
+- Design your theme with TypeScript and well type definition including every property information (hovering).
+- Support generate variant colors theme with variable.
 - Provide a helper function to add alpha (in rgba) to color and even variable.
 - Regenerate themes after edited (watch mode) with `ts-node-dev` add update contribution field in `package.json`.
 
@@ -56,7 +56,7 @@ const uiColor: UiColor = {
   // ...more UI color tokens
 };
 
-// if you use variant color variable, make you create variant UI color token
+// if you use variant color variable, make sure you create variant UI color token
 // with createVariantUiColor function.
 const variantUiColor = createVariantUiColor(uiColor, variant);
 
