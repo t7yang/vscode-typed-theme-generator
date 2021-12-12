@@ -11,6 +11,7 @@ $ yarn add vscode-typed-theme-generator
 
 ## Features
 
+- With JS/TS, now you can just install the color pallete (Material Design Colors or Tailwind Colors) you like and import to use in your design.
 - Design your theme with TypeScript and well type definition including every property information (hovering).
 - Support generate variant colors theme with variable.
 - Provide a helper function to add alpha (in rgba) to color and even variable.
@@ -76,8 +77,8 @@ const tokenColors: TokenColor[] = [
 
 // support semantic token color types (1.2.0), token types and tokens modifiers enum (1.3.0)
 const semanticTokenColors: SemanticTokenColors = {
-  [`${Type.variable}.${Mod.readonly}.javascript`]: md.blue[500]
-}
+  [`${Type.variable}.${Mod.readonly}.javascript`]: md.blue[500],
+};
 
 // extract the variant labels
 type VariantKey = keyof typeof variantUiColor;
@@ -138,14 +139,3 @@ Setup the `scripts` in package.json.
 ## Example
 
 A real world example is my theme [Dark Lavender](https://github.com/t7yang/dark-lavender).
-
-## Features
-
-VTTG provides several nice feature to help you build your VSCode theme.
-
-- Strong type with TypeScript
-  - Type checking to enhance your project robustness.
-  - No need to mess with a lot of JSON files, instead you can use all techniques in JS/TS to help organize your works.
-  - Most of the `type`, `interface`, and `function` provide JSDoc comment to help you understand what it is.
-- With JS/TS, now you can just install the color pallete (Material Design Colors or Tailwind Colors) you like and import to use in your design.
-- With `createVariant` function, now you can use color variable in your design, and very easy to create several themes based on difference primary color.
