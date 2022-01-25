@@ -22,11 +22,28 @@ export const extractVarAndAlpha = (color: string): { variable: string; alpha: nu
 
 /**
  * A helper function to alpha value to color.
+ * @deprecated for better semantic, please use {@link opacity}.
  * @param color A hex color or a variable from createVariant.
  * @param alpha A hex (0-F or 00-FF depend on your color) or decimal (0-1) alpha value.
  * @returns A hex color with alpha or a special form of string combine variable and alpha value.
  */
 export const transparent = (color: string, alpha: number | string): string => {
+  if (typeof alpha === 'number' && DEC_ALPHA_RE.test(String(alpha))) {
+    return transparencyWithNumber(color, alpha);
+  } else if (typeof alpha === 'string' && HEX_ALPHA_RE.test(String(alpha))) {
+    return transparencyWithString(color, alpha);
+  } else {
+    throw TypeError(`The argument 'alpha' is an invalid alpha value: ${JSON.stringify(alpha)}`);
+  }
+};
+
+/**
+ * A helper function to alpha value to color.
+ * @param color A hex color or a variable from createVariant.
+ * @param alpha A hex (0-F or 00-FF depend on your color) or decimal (0-1) alpha value.
+ * @returns A hex color with alpha or a special form of string combine variable and alpha value.
+ */
+export const opacity = (color: string, alpha: number | string): string => {
   if (typeof alpha === 'number' && DEC_ALPHA_RE.test(String(alpha))) {
     return transparencyWithNumber(color, alpha);
   } else if (typeof alpha === 'string' && HEX_ALPHA_RE.test(String(alpha))) {
