@@ -461,6 +461,30 @@ export interface EditorColors {
   'editorBracketHighlight.foreground6'?: string;
   /** Foreground color of unexpected brackets. */
   'editorBracketHighlight.unexpectedBracket.foreground'?: string;
+  /** Background color of active bracket pair guides (1). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.activeBackground1'?: string;
+  /** Background color of active bracket pair guides (2). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.activeBackground2'?: string;
+  /** Background color of active bracket pair guides (3). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.activeBackground3'?: string;
+  /** Background color of active bracket pair guides (4). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.activeBackground4'?: string;
+  /** Background color of active bracket pair guides (5). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.activeBackground5'?: string;
+  /** Background color of active bracket pair guides (6). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.activeBackground6'?: string;
+  /** Background color of inactive bracket pair guides (1). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.background1'?: string;
+  /** Background color of inactive bracket pair guides (2). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.background2'?: string;
+  /** Background color of inactive bracket pair guides (3). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.background3'?: string;
+  /** Background color of inactive bracket pair guides (4). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.background4'?: string;
+  /** Background color of inactive bracket pair guides (5). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.background5'?: string;
+  /** Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides. */
+  'editorBracketPairGuide.background6'?: string;
   /** Background color for folded ranges. The color must not be opaque so as not to hide underlying decorations. */
   'editor.foldBackground'?: string;
   /** Background color of the editor overview ruler. Only used when the minimap is enabled and placed on the right side of the editor. */
@@ -535,6 +559,18 @@ export interface EditorColors {
   'editorGutter.commentRangeForeground'?: string;
   /** Color of the folding control in the editor gutter. */
   'editorGutter.foldingControlForeground'?: string;
+  /** Color of borders and arrow for resolved comments. */
+  'editorCommentsWidget.resolvedBorder'?: string;
+  /** Color of borders and arrow for unresolved comments. */
+  'editorCommentsWidget.unresolvedBorder'?: string;
+  /** Color of background for comment ranges. */
+  'editorCommentsWidget.rangeBackground'?: string;
+  /** Color of border for comment ranges. */
+  'editorCommentsWidget.rangeBorder'?: string;
+  /** Color of background for currently selected or hovered comment range. */
+  'editorCommentsWidget.rangeActiveBackground'?: string;
+  /** Color of border for currently selected or hovered comment range. */
+  'editorCommentsWidget.rangeActiveBorder'?: string;
 }
 
 export interface DiffEditorColor {
@@ -599,6 +635,8 @@ export interface EditorWidgetColor {
   'editorHoverWidget.statusBarBackground'?: string;
   /** Border color of the ghost text shown by inline completion providers and the suggest preview. */
   'editorGhostText.border'?: string;
+  /** Background color of the ghost text in the editor. */
+  'editorGhostText.background'?: string;
   /** Foreground color of the ghost text shown by inline completion providers and the suggest preview. */
   'editorGhostText.foreground'?: string;
   /** Exception widget background color. */
@@ -743,6 +781,12 @@ export interface StatusBarColors {
   'statusBarItem.warningBackground'?: string;
   /** Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window. */
   'statusBarItem.warningForeground'?: string;
+  /** Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window. */
+  'statusBarItem.compactHoverBackground'?: string;
+  /** Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window. */
+  'statusBarItem.focusBorder'?: string;
+  /** Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window. */
+  'statusBar.focusBorder'?: string;
 }
 
 export interface TitleBarColors {
@@ -828,6 +872,14 @@ export interface ExtensionsColors {
   'extensionBadge.remoteForeground'?: string;
   /** The icon color for extension ratings. */
   'extensionIcon.starForeground'?: string;
+  /** The icon color for extension verified publisher. */
+  'extensionIcon.verifiedForeground'?: string;
+  /** The icon color for pre-release extension. */
+  'extensionIcon.preReleaseForeground'?: string;
+  /** Background color for extension sponsor button. */
+  'extensionSponsorButton.background'?: string;
+  /** Background hover color for extension sponsor button. */
+  'extensionSponsorButton.hoverBackground'?: string;
 }
 
 export interface QuickPickerColors {
@@ -858,6 +910,13 @@ export interface KeybindingLabelColors {
   'keybindingLabel.border'?: string;
   /** Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut. */
   'keybindingLabel.bottomBorder'?: string;
+}
+
+export interface KeyboardShortcutTableColors {
+  /** Background color for the keyboard shortcuts table header. */
+  'keybindingTable.headerBackground'?: string;
+  /** Background color for the keyboard shortcuts table alternating rows. */
+  'keybindingTable.rowsBackground'?: string;
 }
 
 export interface IntegratedTerminalColors {
@@ -901,6 +960,16 @@ export interface IntegratedTerminalColors {
   'terminal.ansiYellow'?: string;
   /** The selection background color of the terminal. */
   'terminal.selectionBackground'?: string;
+  /** The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied. */
+  'terminal.selectionForeground'?: string;
+  /** Color of the current search match in the terminal. The color must not be opaque so as not to hide underlying terminal content. */
+  'terminal.findMatchBackground'?: string;
+  /** Border color of the current search match in the terminal. */
+  'terminal.findMatchBorder'?: string;
+  /** Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content. */
+  'terminal.findMatchHighlightBackground'?: string;
+  /** Border color of the other search matches in the terminal. */
+  'terminal.findMatchHighlightBorder'?: string;
   /** The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor. */
   'terminalCursor.background'?: string;
   /** The foreground color of the terminal cursor. */
@@ -909,6 +978,16 @@ export interface IntegratedTerminalColors {
   'terminal.dropBackground'?: string;
   /** Border on the side of the terminal tab in the panel. This defaults to tab.activeBorder. */
   'terminal.tab.activeBorder'?: string;
+  /** The default terminal command decoration background color. */
+  'terminalCommandDecoration.defaultBackground'?: string;
+  /** The terminal command decoration background color for successful commands. */
+  'terminalCommandDecoration.successBackground'?: string;
+  /** The terminal command decoration background color for error commands. */
+  'terminalCommandDecoration.errorBackground'?: string;
+  /** The overview ruler cursor color. */
+  'terminalOverviewRuler.cursorForeground'?: string;
+  /** Overview ruler marker color for find matches in the terminal. */
+  'terminalOverviewRuler.findMatchForeground'?: string;
 }
 
 export interface DebugColors {
@@ -1063,6 +1142,10 @@ export interface SettingsEditorColors {
   'settings.focusedRowBackground'?: string;
   /** The color of the row's top and bottom border when the row is focused. */
   'settings.focusedRowBorder'?: string;
+  /** The color of the header container border. */
+  'settings.headerBorder'?: string;
+  /** The color of the Settings editor splitview sash border. */
+  'settings.sashBorder'?: string;
 }
 
 export interface BreadcrumbsColors {
@@ -1308,6 +1391,7 @@ export interface UiColor
     ExtensionsColors,
     QuickPickerColors,
     KeybindingLabelColors,
+    KeyboardShortcutTableColors,
     IntegratedTerminalColors,
     DebugColors,
     TestingColors,
