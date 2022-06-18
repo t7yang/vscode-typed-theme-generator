@@ -37,7 +37,7 @@ export interface VsCodeContributeTheme {
   /** Label of the color theme as shown in the UI. */
   label: string;
   /** Base theme defining the colors around the editor: 'vs' is the light color theme, 'vs-dark' is the dark color theme. 'hc-black' is the dark high contrast theme. */
-  uiTheme: 'vs' | 'vs-dark' | 'hc-black';
+  uiTheme: 'vs' | 'vs-dark' | 'hc-black' | 'hc-light';
   /** Path of the tmTheme file. The path is relative to the extension folder and is typically './colorthemes/awesome-color-theme.json'. */
   path: string;
 }
