@@ -1272,7 +1272,11 @@ export interface PortsColors {
   'ports.iconRunningProcessForeground'?: string;
 }
 
-/** Colors in the workbench */
+/**
+ * Colors in the workbench
+ * doc: {@link https://code.visualstudio.com/api/references/theme-color}
+ * src: {@link https://github.com/microsoft/vscode/commits/main/src/vs/platform/theme/common/colorRegistry.ts}
+ */
 export interface UiColor
   extends ContrastColors,
     BaseColors,
