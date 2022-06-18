@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.3.1...1.3.2) (2022-06-18)
+
+
+### Bug Fixes
+
+* export `opacity` ([386a51f](https://github.com/t7yang/vscode-typed-theme-generator/commit/386a51f870df4303c47152611b61083acc4fd407))
+
 ### [1.3.1](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.3.0...1.3.1) (2022-06-18)
 
 ## [1.3.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.2.0...1.3.0) (2021-12-03)
