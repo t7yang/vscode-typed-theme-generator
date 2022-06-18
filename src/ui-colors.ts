@@ -10,6 +10,8 @@ export interface BaseColors {
   focusBorder?: string;
   /** Overall foreground color. This color is only used if not overridden by a component. */
   foreground?: string;
+  /** Overall foreground for disabled elements. This color is only used if not overridden by a component. */
+  disabledForeground?: string;
   /** Shadow color of widgets such as Find/Replace inside the editor. */
   'widget.shadow'?: string;
   /** Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal). */
@@ -548,6 +550,18 @@ export interface DiffEditorColor {
   'diffEditor.border'?: string;
   /** Color of the diff editor's diagonal fill. The diagonal fill is used in side-by-side diff views. */
   'diffEditor.diagonalFill'?: string;
+  /** Background color for lines that got inserted. The color must not be opaque so as not to hide underlying decorations. */
+  'diffEditor.insertedLineBackground'?: string;
+  /** Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations. */
+  'diffEditor.removedLineBackground'?: string;
+  /** Background color for the margin where lines got inserted. */
+  'diffEditorGutter.insertedLineBackground'?: string;
+  /** Background color for the margin where lines got removed. */
+  'diffEditorGutter.removedLineBackground'?: string;
+  /** Diff overview ruler foreground for inserted content. */
+  'diffEditorOverview.insertedForeground'?: string;
+  /** Diff overview ruler foreground for removed content. */
+  'diffEditorOverview.removedForeground'?: string;
 }
 
 export interface EditorWidgetColor {
