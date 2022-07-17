@@ -405,6 +405,10 @@ export interface EditorColors {
   'editor.lineHighlightBackground'?: string;
   /** Background color for the border around the line at the cursor position. */
   'editor.lineHighlightBorder'?: string;
+  /** Border color used to highlight unicode characters. */
+  'editorUnicodeHighlight.border'?: string;
+  /** Background color used to highlight unicode characters. */
+  'editorUnicodeHighlight.background'?: string;
   /** Color of active links. */
   'editorLink.activeForeground'?: string;
   /** Background color of highlighted ranges, used by Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations. */
@@ -823,6 +827,19 @@ export interface MenuBarColors {
   'menu.separatorBackground'?: string;
   /** Border color of menus. */
   'menu.border'?: string;
+}
+
+export interface CommandCenterColors {
+  /** Foreground color of the command center */
+  'commandCenter.foreground'?: string;
+  /** Active foreground color of the command center */
+  'commandCenter.activeForeground'?: string;
+  /** Background color of the command center */
+  'commandCenter.background'?: string;
+  /** Active background color of the command center */
+  'commandCenter.activeBackground'?: string;
+  /** Border color of the command center */
+  'commandCenter.border'?: string;
 }
 
 export interface NotificationColors {
@@ -1386,6 +1403,7 @@ export interface UiColor
     StatusBarColors,
     TitleBarColors,
     MenuBarColors,
+    CommandCenterColors,
     NotificationColors,
     BannerColors,
     ExtensionsColors,
