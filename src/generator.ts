@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { vttgStringify, VttgStringify } from './stringify';
 import { VsCodeContributeTheme, VsCodeThemeMeta } from './theme';
 
 export interface CreateVsCodeThemeConfig {
@@ -18,12 +19,17 @@ export interface CreateVsCodeThemeConfig {
  * @param config The essential information for generating your themes.
  * @returns All themes in VSCode contribute form, in case you want to handle override package.json yourself.
  */
-export const createVsCodeTheme = (config: CreateVsCodeThemeConfig): Promise<VsCodeContributeTheme[]> => {
+export const createVsCodeTheme = (
+  config: CreateVsCodeThemeConfig,
+  stringify: VttgStringify = vttgStringify,
+): Promise<VsCodeContributeTheme[]> => {
   return Promise.all(
     config.themes.map(({ filename, theme, ...contribute }) =>
       fs
         .mkdir(path.resolve(config.rootPath, config.outputFolder), { recursive: true })
-        .then(() => fs.writeFile(path.resolve(config.rootPath, config.outputFolder, filename), JSON.stringify(theme)))
+        .then(() =>
+          fs.writeFile(path.resolve(config.rootPath, config.outputFolder, filename), stringify('theme', theme)),
+        )
         .then<VsCodeContributeTheme>(() => ({
           label: theme.name,
           ...contribute,
@@ -37,7 +43,7 @@ export const createVsCodeTheme = (config: CreateVsCodeThemeConfig): Promise<VsCo
           .readFile(packageJsonPath, 'utf8')
           .then(JSON.parse)
           .then(pkJson => ((pkJson.contributes = Object.assign(pkJson.contributes || {}, { themes })), pkJson))
-          .then(pkJson => fs.writeFile(packageJsonPath, JSON.stringify(pkJson, null, 2)))
+          .then(pkJson => fs.writeFile(packageJsonPath, stringify('packageJson', pkJson)))
           .then(() => themes)
       : themes;
   });
