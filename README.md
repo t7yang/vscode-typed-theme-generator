@@ -115,6 +115,7 @@ const config: CreateVsCodeThemeConfig = {
 };
 
 // finally call createVsCodeTheme function to generate all themes.
+// you can also provide an optional stringify function as second argument
 createVsCodeTheme(config)
   .then(() => console.log('Themes created!'))
   .catch(error => console.log('Error: ', error));
