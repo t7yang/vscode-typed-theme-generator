@@ -32,7 +32,7 @@ import {
   CreateVsCodeThemeConfig,
   SemanticTokenColors,
   TokenColor,
-  transparent,
+  opacity,
   UiColor,
   VsCodeThemeMeta,
   UiColor,
@@ -49,11 +49,11 @@ const [variant, Variable] = createVariant({
 const uiColor: UiColor = {
   focusBorder: md.deepPurple.A700,
   foreground: md.blueGrey[100],
-  // transparent helper function help you add alpha value to hex color
-  errorForeground: transparent(md.pink[700], 0.5),
-  'icon.foreground': transparent(md.deepPurple.A100, '33'),
-  // transparent function even support variable
-  'list.inactiveSelectionBackground': transparent(Variable.bg2, 0.7),
+  // opacity helper function help you add alpha value to hex color
+  errorForeground: opacity(md.pink[700], 0.5),
+  'icon.foreground': opacity(md.deepPurple.A100, '33'),
+  // opacity function even support variable
+  'list.inactiveSelectionBackground': opacity(Variable.bg2, 0.7),
   'activityBar.background': Variable.bg1,
   // ...more UI color tokens
 };
