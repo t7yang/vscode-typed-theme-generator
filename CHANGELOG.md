@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.3.4...2.0.0) (2022-07-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimun support for node.js to 14
+* remove the deprecated `transparent` function
+
+### Features
+
+* support custom stringify function ([c46aec7](https://github.com/t7yang/vscode-typed-theme-generator/commit/c46aec76497c294c39e173f28d2bd1696071367c))
+
+
+* remove the deprecated `transparent` function ([74afda1](https://github.com/t7yang/vscode-typed-theme-generator/commit/74afda1e52badfd6089c061724aa9244b4d250ed))
+
+
+### build
+
+* minimun support for node.js to 14 ([59f6033](https://github.com/t7yang/vscode-typed-theme-generator/commit/59f6033192c14c9c1fd09e17dfac0ba3b870bf47))
+
 ### [1.3.4](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.3.3...1.3.4) (2022-07-17)
 
 ### [1.3.3](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.3.2...1.3.3) (2022-07-17)
