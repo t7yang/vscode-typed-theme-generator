@@ -1,5 +1,5 @@
 import { TokenColorSetting } from '.';
-import { extractVarAndAlpha, isHex, isVariableWithAlpha, transparent } from './opacity';
+import { extractVarAndAlpha, isHex, isVariableWithAlpha, opacity } from './opacity';
 import { SemanticTokenColors } from './semantic-token-colors';
 import { TokenColor } from './token-colors';
 import { UiColor } from './ui-colors';
@@ -23,7 +23,7 @@ export const createVariant = <Label extends ObjKey, Var extends ObjKey>(
 const varToColor = <Var extends string>(vari: string, VAR: Record<Var, string>): string | null => {
   const { variable, alpha } = isVariableWithAlpha(vari) ? extractVarAndAlpha(vari) : { variable: vari, alpha: '' };
   const color: string | undefined = VAR[variable as Var];
-  return typeof color !== 'string' ? null : alpha ? transparent(color, alpha) : color;
+  return typeof color !== 'string' ? null : alpha ? opacity(color, alpha) : color;
 };
 
 /**

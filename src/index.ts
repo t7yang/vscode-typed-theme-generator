@@ -1,5 +1,5 @@
 export * from './generator';
-export { opacity, transparent } from './opacity';
+export { opacity } from './opacity';
 export * from './semantic-token-colors';
 export * from './stringify';
 export * from './theme';
