@@ -1,7 +1,7 @@
 import { TokenColorSetting } from '.';
+import { extractVarAndAlpha, isHex, isVariableWithAlpha, transparent } from './opacity';
 import { SemanticTokenColors } from './semantic-token-colors';
 import { TokenColor } from './token-colors';
-import { extractVarAndAlpha, isHex, isVariableWithAlpha, transparent } from './transparent';
 import { UiColor } from './ui-colors';
 
 type ObjKey = string;
