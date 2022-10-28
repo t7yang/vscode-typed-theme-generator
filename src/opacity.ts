@@ -41,7 +41,9 @@ function getColorType(color: string): 'VAR' | 'HEX' | 'HEXALP' {
 }
 
 function decToHex(alpha: number, isShort: boolean) {
-  return Math.round(alpha * (isShort ? 0xf : 0xff)).toString(16);
+  return Math.round(alpha * (isShort ? 0xf : 0xff))
+    .toString(16)
+    .padStart(isShort ? 1 : 2, '0');
 }
 
 function transparencyWithNumber(color: string, alpha: number): string {
