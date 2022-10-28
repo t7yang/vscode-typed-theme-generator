@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://github.com/t7yang/vscode-typed-theme-generator/compare/2.0.2...2.0.3) (2022-10-28)
+
+
+### Bug Fixes
+
+* alpha value should pad `0` for single digit value ([25b4063](https://github.com/t7yang/vscode-typed-theme-generator/commit/25b4063a2ebaeef0f36780a935f2d8e4237514fb))
+
 ### [2.0.2](https://github.com/t7yang/vscode-typed-theme-generator/compare/2.0.1...2.0.2) (2022-10-28)
 
 
