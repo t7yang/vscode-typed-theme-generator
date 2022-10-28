@@ -229,6 +229,12 @@ export interface ActivityBar {
   'activityBar.activeBackground'?: string;
   /** Activity bar focus border color for the active item. */
   'activityBar.activeFocusBorder'?: string;
+  /* Foreground color for the settings profile entry on the activity bar. */
+  'activityBarItem.settingsProfilesForeground'?: string;
+  /* Foreground color for the settings profile entry on the activity bar when hovering. */
+  'activityBarItem.settingsProfilesHoverForeground'?: string;
+  /* Background color for the settings profile entry on the activity bar. */
+  'activityBarItem.settingsProfilesBackground'?: string;
 }
 
 export interface SideBar {
@@ -834,12 +840,16 @@ export interface CommandCenterColors {
   'commandCenter.foreground'?: string;
   /** Active foreground color of the command center */
   'commandCenter.activeForeground'?: string;
+  /** Foreground color of the command center when the window is inactive */
+  'commandCenter.inactiveForeground'?: string;
   /** Background color of the command center */
   'commandCenter.background'?: string;
   /** Active background color of the command center */
   'commandCenter.activeBackground'?: string;
   /** Border color of the command center */
   'commandCenter.border'?: string;
+  /** Border color of the command center when the window is inactive */
+  'commandCenter.inactiveBorder'?: string;
 }
 
 export interface NotificationColors {
@@ -877,26 +887,24 @@ export interface BannerColors {
 }
 
 export interface ExtensionsColors {
-  /** Extension view button foreground color (for example Install button). */
+  /* Extension view button foreground color (for example Install button). */
   'extensionButton.prominentForeground'?: string;
-  /** Extension view button background color. */
+  /* Extension view button background color. */
   'extensionButton.prominentBackground'?: string;
-  /** Extension view button background hover color. */
+  /* Extension view button background hover color. */
   'extensionButton.prominentHoverBackground'?: string;
-  /** Background color for the remote badge in the extensions view. */
+  /* Background color for the remote badge in the extensions view. */
   'extensionBadge.remoteBackground'?: string;
-  /** Foreground color for the remote badge in the extensions view. */
+  /* Foreground color for the remote badge in the extensions view. */
   'extensionBadge.remoteForeground'?: string;
-  /** The icon color for extension ratings. */
+  /* The icon color for extension ratings. */
   'extensionIcon.starForeground'?: string;
-  /** The icon color for extension verified publisher. */
+  /* The icon color for extension verified publisher. */
   'extensionIcon.verifiedForeground'?: string;
-  /** The icon color for pre-release extension. */
+  /* The icon color for pre-release extension. */
   'extensionIcon.preReleaseForeground'?: string;
-  /** Background color for extension sponsor button. */
-  'extensionSponsorButton.background'?: string;
-  /** Background hover color for extension sponsor button. */
-  'extensionSponsorButton.hoverBackground'?: string;
+  /* The icon color for extension sponsor. */
+  'extensionIcon.sponsorForeground'?: string;
 }
 
 export interface QuickPickerColors {
