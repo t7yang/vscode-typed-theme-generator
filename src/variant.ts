@@ -69,7 +69,10 @@ export const createVariantTokenColors = <Label extends ObjKey, Var extends ObjKe
   variants: VariantColor<Label, Var>,
 ): Record<Label, TokenColor[]> => {
   const variantTokenColors = Object.fromEntries(
-    Object.keys(variants).map(key => [key, tokenColors.map(settings => ({ ...settings }))]),
+    Object.keys(variants).map(label => [
+      label,
+      tokenColors.map(token => ({ ...token, settings: { ...token.settings } })),
+    ]),
   ) as Record<Label, TokenColor[]>;
 
   Object.entries(variants).forEach(variantEntry => {
@@ -102,21 +105,21 @@ export const createVariantSemanticTokenColors = <Label extends ObjKey, Var exten
   >;
 
   Object.entries(variants).forEach(variantEntry => {
-    const [label, VAR] = variantEntry as [Label, typeof variants[Label]];
+    const [label, vr] = variantEntry as [Label, typeof variants[Label]];
     const semanticColors: SemanticTokenColors = variantStc[label];
 
     Object.entries(semanticColors).forEach(entry => {
       const [semanticToken, tokenValue] = entry as [string, SemanticTokenColors[string]];
 
       if (typeof tokenValue === 'string' && !isHex(tokenValue)) {
-        const color = varToColor(tokenValue, VAR);
+        const color = varToColor(tokenValue, vr);
         color && (semanticColors[semanticToken] = color);
       } else if (
         typeof (tokenValue as TokenColorSetting).foreground === 'string' &&
         !isHex((tokenValue as TokenColorSetting).foreground ?? '')
       ) {
-        const color = varToColor((tokenValue as TokenColorSetting).foreground!, VAR);
-        Object.assign(semanticColors[semanticToken] as TokenColorSetting, { foreground: color });
+        const color = varToColor((tokenValue as TokenColorSetting).foreground!, vr);
+        semanticColors[semanticToken] = Object.assign({}, semanticColors[semanticToken], { foreground: color });
       }
     });
   });
