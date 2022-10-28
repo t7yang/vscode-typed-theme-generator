@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/t7yang/vscode-typed-theme-generator/compare/2.0.1...2.0.2) (2022-10-28)
+
+
+### Bug Fixes
+
+* overwrite object value when creating variant ([6cba68a](https://github.com/t7yang/vscode-typed-theme-generator/commit/6cba68af4f6ee39c2138f8d047c14c7b4f752e57))
+
 ### [2.0.1](https://github.com/t7yang/vscode-typed-theme-generator/compare/2.0.0...2.0.1) (2022-10-28)
 
 ## [2.0.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.3.4...2.0.0) (2022-07-28)
