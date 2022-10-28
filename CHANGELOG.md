@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/t7yang/vscode-typed-theme-generator/compare/2.0.0...2.0.1) (2022-10-28)
+
 ## [2.0.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/1.3.4...2.0.0) (2022-07-28)
 
 
