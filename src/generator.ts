@@ -15,7 +15,7 @@ export interface CreateVsCodeThemeConfig {
 }
 
 /**
- * Creator function to help you generating your themes and handle override package.json
+ * Creator function to help you generate your themes and handle override package.json
  * @param config The essential information for generating your themes.
  * @returns All themes in VSCode contribute form, in case you want to handle override package.json yourself.
  */

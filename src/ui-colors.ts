@@ -14,6 +14,8 @@ export interface BaseColors {
   disabledForeground?: string;
   /** Shadow color of widgets such as Find/Replace inside the editor. */
   'widget.shadow'?: string;
+  /** Border color of widgets such as find/replace inside the editor. */
+  'widget.border'?: string;
   /** Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal). */
   'selection.background'?: string;
   /** Foreground color for description text providing additional information, for example for a label. */
@@ -76,10 +78,14 @@ export interface ButtonControl {
   'button.secondaryHoverBackground'?: string;
   /** Background color of checkbox widget. */
   'checkbox.background'?: string;
+  /** Background color of checkbox widget when the element it's in is selected. */
+  'checkbox.selectBackground'?: string;
   /** Foreground color of checkbox widget. */
   'checkbox.foreground'?: string;
   /** Border color of checkbox widget. */
   'checkbox.border'?: string;
+  /** Border color of checkbox widget when the element it's in is selected. */
+  'checkbox.selectBorder'?: string;
 }
 
 export interface DropdownControl {
@@ -196,6 +202,8 @@ export interface ListsAndTrees {
   'listFilterWidget.outline'?: string;
   /** List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree. */
   'listFilterWidget.noMatchesOutline'?: string;
+  /** Shadow color of the type filter widget in lists and trees. */
+  'listFilterWidget.shadow'?: string;
   /** Background color of the filtered matches in lists and trees. */
   'list.filterMatchBackground'?: string;
   /** Border color of the filtered matches in lists and trees. */
@@ -204,6 +212,8 @@ export interface ListsAndTrees {
   'list.deemphasizedForeground'?: string;
   /** Tree Widget's stroke color for indent guides. */
   'tree.indentGuidesStroke'?: string;
+  /** Tree stroke color for the indentation guides that are not active. */
+  'tree.inactiveIndentGuidesStroke'?: string;
   /** Tree stroke color for the indentation guides. */
   'tree.tableColumnsBorder'?: string;
 }
@@ -399,6 +409,8 @@ export interface EditorColors {
   'editor.findMatchHighlightBorder'?: string;
   /** Border color the range limiting the search (Enable 'Find in Selection' in the find widget). */
   'editor.findRangeHighlightBorder'?: string;
+  /** Color of the text in the search viewlet's completion message. */
+  'search.resultsInfoForeground'?: string;
   /** Color of the editor's results. */
   'searchEditor.findMatchBackground'?: string;
   /** Border color of the editor's results. */
@@ -596,6 +608,12 @@ export interface DiffEditorColor {
   'diffEditor.border'?: string;
   /** Color of the diff editor's diagonal fill. The diagonal fill is used in side-by-side diff views. */
   'diffEditor.diagonalFill'?: string;
+  /** The color of unchanged blocks in diff editor. */
+  'diffEditor.unchangedRegionBackground'?: string;
+  /** The foreground color of unchanged blocks in diff editor. */
+  'diffEditor.unchangedRegionForeground'?: string;
+  /** The background color of unchanged code in the diff editor. */
+  'diffEditor.unchangedCodeBackground'?: string;
   /** Background color for lines that got inserted. The color must not be opaque so as not to hide underlying decorations. */
   'diffEditor.insertedLineBackground'?: string;
   /** Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations. */
