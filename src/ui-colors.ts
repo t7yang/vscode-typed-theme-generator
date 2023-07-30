@@ -808,6 +808,8 @@ export interface MergeConflictsColors {
   'editorOverviewRuler.incomingContentForeground'?: string;
   /** Common ancestor overview ruler foreground for inline merge conflicts. */
   'editorOverviewRuler.commonContentForeground'?: string;
+  /** Editor overview ruler decoration color for resolved comments. This color should be opaque. */
+  'editorOverviewRuler.commentForeground'?: string;
   /** Editor overview ruler decoration color for unresolved comments. This color should be opaque. */
   'editorOverviewRuler.commentUnresolvedForeground'?: string;
   /** The background color for changes. */
