@@ -121,7 +121,7 @@ createVsCodeTheme(config)
   .catch(error => console.log('Error: ', error));
 ```
 
-If you want need a watching mode which keep regenerating themes in realtime, you can use with `ts-node-dev` for `ts` or `nodemon` of `js`.
+If you need watch mode for keep regenerating themes in realtime, you can use with `ts-node-dev` for `ts` or `nodemon` for `js`.
 
 ```bash
 $ npm i -D ts-node-dev typescript
