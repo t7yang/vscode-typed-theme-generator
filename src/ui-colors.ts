@@ -114,6 +114,8 @@ export interface InputControl {
   'inputOption.activeBorder'?: string;
   /** Foreground color of activated options in input fields. */
   'inputOption.activeForeground'?: string;
+  /** Background color of activated options in input fields. */
+  'inputOption.hoverBackground'?: string;
   /** Input validation background color for error severity. */
   'inputValidation.errorBackground'?: string;
   /** Input validation foreground color for error severity. */
@@ -174,6 +176,8 @@ export interface ListsAndTrees {
   'list.focusHighlightForeground'?: string;
   /** List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not. */
   'list.focusOutline'?: string;
+  /** List/Tree outline color for the focused item when the list/tree is active and selected. An active list/tree has keyboard focus, an inactive does not. */
+  'list.focusAndSelectionOutline'?: string;
   /** List/Tree foreground color of the match highlights when searching inside the list/tree. */
   'list.highlightForeground'?: string;
   /** List/Tree background when hovering over items using the mouse. */
@@ -202,7 +206,7 @@ export interface ListsAndTrees {
   'listFilterWidget.outline'?: string;
   /** List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree. */
   'listFilterWidget.noMatchesOutline'?: string;
-  /** Shadow color of the type filter widget in lists and trees. */
+  /** Shadow color of the type filter widget in lists and tree. */
   'listFilterWidget.shadow'?: string;
   /** Background color of the filtered matches in lists and trees. */
   'list.filterMatchBackground'?: string;
@@ -216,6 +220,8 @@ export interface ListsAndTrees {
   'tree.inactiveIndentGuidesStroke'?: string;
   /** Tree stroke color for the indentation guides. */
   'tree.tableColumnsBorder'?: string;
+  /** Background color for odd table rows. */
+  'tree.tableOddRowsBackground'?: string;
 }
 
 export interface ActivityBar {
@@ -239,12 +245,13 @@ export interface ActivityBar {
   'activityBar.activeBackground'?: string;
   /** Activity bar focus border color for the active item. */
   'activityBar.activeFocusBorder'?: string;
-  /* Foreground color for the settings profile entry on the activity bar. */
-  'activityBarItem.settingsProfilesForeground'?: string;
-  /* Foreground color for the settings profile entry on the activity bar when hovering. */
-  'activityBarItem.settingsProfilesHoverForeground'?: string;
-  /* Background color for the settings profile entry on the activity bar. */
-  'activityBarItem.settingsProfilesBackground'?: string;
+}
+
+export interface Profile {
+  /** Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar. */
+  'profileBadge.background'?: string;
+  /** Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar. */
+  'profileBadge.foreground'?: string;
 }
 
 export interface SideBar {
@@ -300,18 +307,24 @@ export interface EditorGroupsAndTabs {
   'editorGroup.border'?: string;
   /** Background color when dragging editors around. */
   'editorGroup.dropBackground'?: string;
-  /** Background color of the editor group title header when Tabs are disabled (set "workbench.editor.showTabs": false). */
+  /** Background color of the editor group title header when Tabs are disabled (set '"workbench.editor.showTabs"'?: false). */
   'editorGroupHeader.noTabsBackground'?: string;
   /** Background color of the Tabs container. */
   'editorGroupHeader.tabsBackground'?: string;
   /** Border color below the editor tabs control when tabs are enabled. */
   'editorGroupHeader.tabsBorder'?: string;
-  /** Border color between editor group header and editor (below breadrcumbs if enabled). */
+  /** Border color between editor group header and editor (below breadcrumbs if enabled). */
   'editorGroupHeader.border'?: string;
   /** Background color of an empty editor group. */
   'editorGroup.emptyBackground'?: string;
   /** Border color of an empty editor group that is focused. */
   'editorGroup.focusedEmptyBorder'?: string;
+  /** Foreground color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor. */
+  'editorGroup.dropIntoPromptForeground'?: string;
+  /** Background color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor. */
+  'editorGroup.dropIntoPromptBackground'?: string;
+  /** Border color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor. */
+  'editorGroup.dropIntoPromptBorder'?: string;
   /** Active Tab background color in an active group. */
   'tab.activeBackground'?: string;
   /** Active Tab background color in an inactive editor group. */
@@ -362,8 +375,10 @@ export interface EditorGroupsAndTabs {
   'tab.unfocusedInactiveModifiedBorder'?: string;
   /** Background color of the editor pane visible on the left and right side of the centered editor layout. */
   'editorPane.background'?: string;
-  /** Color to separate two editors from each other when shown side by side in an editor group. */
-  'sideBySideEditor.border'?: string;
+  /** Color to separate two editors from each other when shown side by side in an editor group from top to bottom. */
+  'sideBySideEditor.horizontalBorder'?: string;
+  /** Color to separate two editors from each other when shown side by side in an editor group from left to right. */
+  'sideBySideEditor.verticalBorder'?: string;
 }
 
 export interface EditorColors {
@@ -375,6 +390,8 @@ export interface EditorColors {
   'editorLineNumber.foreground'?: string;
   /** Color of the active editor line number. */
   'editorLineNumber.activeForeground'?: string;
+  /** Color of the final editor line when editor.renderFinalNewline is set to dimmed. */
+  'editorLineNumber.dimmedForeground'?: string;
   /** The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor. */
   'editorCursor.background'?: string;
   /** Color of the editor cursor. */
@@ -397,6 +414,10 @@ export interface EditorColors {
   'editor.wordHighlightStrongBackground'?: string;
   /** Border color of a symbol during write-access, for example when writing to a variable. */
   'editor.wordHighlightStrongBorder'?: string;
+  /** Background color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations. */
+  'editor.wordHighlightTextBackground'?: string;
+  /** Border color of a textual occurrence for a symbol. */
+  'editor.wordHighlightTextBorder'?: string;
   /** Color of the current search match. */
   'editor.findMatchBackground'?: string;
   /** Color of the other search matches. The color must not be opaque so as not to hide underlying decorations. */
@@ -409,7 +430,7 @@ export interface EditorColors {
   'editor.findMatchHighlightBorder'?: string;
   /** Border color the range limiting the search (Enable 'Find in Selection' in the find widget). */
   'editor.findRangeHighlightBorder'?: string;
-  /** Color of the text in the search viewlet's completion message. */
+  /** Color of the text in the search viewlet's completion message. For example, this color is used in the text that says "{x} results in {y} files". */
   'search.resultsInfoForeground'?: string;
   /** Color of the editor's results. */
   'searchEditor.findMatchBackground'?: string;
@@ -523,6 +544,8 @@ export interface EditorColors {
   'editorOverviewRuler.wordHighlightForeground'?: string;
   /** Overview ruler marker color for write-access symbol highlights. The color must not be opaque so as not to hide underlying decorations. */
   'editorOverviewRuler.wordHighlightStrongForeground'?: string;
+  /** Overview ruler marker color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations. */
+  'editorOverviewRuler.wordHighlightTextForeground'?: string;
   /** Overview ruler marker color for modified content. */
   'editorOverviewRuler.modifiedForeground'?: string;
   /** Overview ruler marker color for added content. */
@@ -579,6 +602,10 @@ export interface EditorColors {
   'editorGutter.deletedBackground'?: string;
   /** Editor gutter decoration color for commenting ranges. */
   'editorGutter.commentRangeForeground'?: string;
+  /** Editor gutter decoration color for commenting glyphs. */
+  'editorGutter.commentGlyphForeground'?: string;
+  /** Editor gutter decoration color for commenting glyphs for unresolved comment threads. */
+  'editorGutter.commentUnresolvedGlyphForeground'?: string;
   /** Color of the folding control in the editor gutter. */
   'editorGutter.foldingControlForeground'?: string;
   /** Color of borders and arrow for resolved comments. */
@@ -608,12 +635,6 @@ export interface DiffEditorColor {
   'diffEditor.border'?: string;
   /** Color of the diff editor's diagonal fill. The diagonal fill is used in side-by-side diff views. */
   'diffEditor.diagonalFill'?: string;
-  /** The color of unchanged blocks in diff editor. */
-  'diffEditor.unchangedRegionBackground'?: string;
-  /** The foreground color of unchanged blocks in diff editor. */
-  'diffEditor.unchangedRegionForeground'?: string;
-  /** The background color of unchanged code in the diff editor. */
-  'diffEditor.unchangedCodeBackground'?: string;
   /** Background color for lines that got inserted. The color must not be opaque so as not to hide underlying decorations. */
   'diffEditor.insertedLineBackground'?: string;
   /** Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations. */
@@ -626,6 +647,44 @@ export interface DiffEditorColor {
   'diffEditorOverview.insertedForeground'?: string;
   /** Diff overview ruler foreground for removed content. */
   'diffEditorOverview.removedForeground'?: string;
+  /** The color of unchanged blocks in diff editor. */
+  'diffEditor.unchangedRegionBackground'?: string;
+  /** The foreground color of unchanged blocks in the diff editor. */
+  'diffEditor.unchangedRegionForeground'?: string;
+  /** The background color of unchanged code in the diff editor. */
+  'diffEditor.unchangedCodeBackground'?: string;
+  /** The border color for text that got moved in the diff editor. */
+  'diffEditor.move.border'?: string;
+}
+
+export interface ChatColors {
+  /** The background color of a chat request. */
+  'chat.requestBackground'?: string;
+  /** The border color of a chat request. */
+  'chat.requestBorder'?: string;
+}
+
+export interface InlineChatColors {
+  /** Background color of the interactive editor widget. */
+  'inlineChat.background'?: string;
+  /** Border color of the interactive editor widget. */
+  'inlineChat.border'?: string;
+  /** Shadow color of the interactive editor widget. */
+  'inlineChat.shadow'?: string;
+  /** Background highlighting of the current interactive region. Must be transparent. */
+  'inlineChat.regionHighlight'?: string;
+  /** Border color of the interactive editor input. */
+  'inlineChatInput.border'?: string;
+  /** Border color of the interactive editor input when focused. */
+  'inlineChatInput.focusBorder'?: string;
+  /** Foreground color of the interactive editor input placeholder. */
+  'inlineChatInput.placeholderForeground'?: string;
+  /** Background color of the interactive editor input. */
+  'inlineChatInput.background'?: string;
+  /** Background color of inserted text in the interactive editor input. */
+  'inlineChatDiff.inserted'?: string;
+  /** Background color of removed text in the interactive editor input. */
+  'inlineChatrDiff.removed'?: string;
 }
 
 export interface EditorWidgetColor {
@@ -653,12 +712,16 @@ export interface EditorWidgetColor {
   'editorSuggestWidget.selectedForeground'?: string;
   /** Icon foreground color of the selected entry in the suggest widget. */
   'editorSuggestWidget.selectedIconForeground'?: string;
+  /** Foreground color of the suggest widget status. */
+  'editorSuggestWidgetStatus.foreground'?: string;
   /** Foreground color of the editor hover. */
   'editorHoverWidget.foreground'?: string;
   /** Background color of the editor hover. */
   'editorHoverWidget.background'?: string;
   /** Border color of the editor hover. */
   'editorHoverWidget.border'?: string;
+  /** Foreground color of the active item in the parameter hint. */
+  'editorHoverWidget.highlightForeground'?: string;
   /** Background color of the editor hover status bar. */
   'editorHoverWidget.statusBarBackground'?: string;
   /** Border color of the ghost text shown by inline completion providers and the suggest preview. */
@@ -667,6 +730,10 @@ export interface EditorWidgetColor {
   'editorGhostText.background'?: string;
   /** Foreground color of the ghost text shown by inline completion providers and the suggest preview. */
   'editorGhostText.foreground'?: string;
+  /** Editor sticky scroll background color. */
+  'editorStickyScroll.background'?: string;
+  /** Editor sticky scroll on hover background color. */
+  'editorStickyScrollHover.background'?: string;
   /** Exception widget background color. */
   'debugExceptionWidget.background'?: string;
   /** Exception widget border color. */
@@ -696,7 +763,7 @@ export interface PeekViewColors {
   'peekViewEditorGutter.background'?: string;
   /** Match highlight color in the peek view editor. */
   'peekViewEditor.matchHighlightBackground'?: string;
-  /** Match highlight border color in the peek view editor. */
+  /** Match highlight border color in the peek view editor. peekViewEditorStickyScroll.background: Background color of sticky scroll in the peek view editor. */
   'peekViewEditor.matchHighlightBorder'?: string;
   /** Background color of the peek view result list. */
   'peekViewResult.background'?: string;
@@ -716,6 +783,8 @@ export interface PeekViewColors {
   'peekViewTitleDescription.foreground'?: string;
   /** Color of the peek view title. */
   'peekViewTitleLabel.foreground'?: string;
+  /** Background color of sticky scroll in the peek view editor. */
+  'peekViewEditorStickyScroll.background'?: string;
 }
 
 export interface MergeConflictsColors {
@@ -739,6 +808,34 @@ export interface MergeConflictsColors {
   'editorOverviewRuler.incomingContentForeground'?: string;
   /** Common ancestor overview ruler foreground for inline merge conflicts. */
   'editorOverviewRuler.commonContentForeground'?: string;
+  /** Editor overview ruler decoration color for unresolved comments. This color should be opaque. */
+  'editorOverviewRuler.commentUnresolvedForeground'?: string;
+  /** The background color for changes. */
+  'mergeEditor.change.background'?: string;
+  /** The background color for word changes. */
+  'mergeEditor.change.word.background'?: string;
+  /** The border color of unhandled unfocused conflicts. */
+  'mergeEditor.conflict.unhandledUnfocused.border'?: string;
+  /** The border color of unhandled focused conflicts. */
+  'mergeEditor.conflict.unhandledFocused.border'?: string;
+  /** The border color of handled unfocused conflicts. */
+  'mergeEditor.conflict.handledUnfocused.border'?: string;
+  /** The border color of handled focused conflicts. */
+  'mergeEditor.conflict.handledFocused.border'?: string;
+  /** The foreground color for changes in input 1. */
+  'mergeEditor.conflict.handled.minimapOverViewRuler'?: string;
+  /** The foreground color for changes in input 1. */
+  'mergeEditor.conflict.unhandled.minimapOverViewRuler'?: string;
+  /** The background of the "Conflicting Lines" text. */
+  'mergeEditor.conflictingLines.background'?: string;
+  /** The background color for changes in base. */
+  'mergeEditor.changeBase.background'?: string;
+  /** The background color for word changes in base. */
+  'mergeEditor.changeBase.word.background'?: string;
+  /** The background color of decorations in input 1. */
+  'mergeEditor.conflict.input1.background'?: string;
+  /** The background color of decorations in input 2. */
+  'mergeEditor.conflict.input2.background'?: string;
 }
 
 export interface PanelColors {
@@ -815,6 +912,10 @@ export interface StatusBarColors {
   'statusBarItem.focusBorder'?: string;
   /** Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window. */
   'statusBar.focusBorder'?: string;
+  /** Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window. */
+  'statusBar.offlineBackground'?: string;
+  /** Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window. */
+  'statusBar.offlineForeground'?: string;
 }
 
 export interface TitleBarColors {
@@ -854,20 +955,22 @@ export interface MenuBarColors {
 }
 
 export interface CommandCenterColors {
-  /** Foreground color of the command center */
+  /** Foreground color of the Command Center. */
   'commandCenter.foreground'?: string;
-  /** Active foreground color of the command center */
+  /** Active foreground color of the Command Center. */
   'commandCenter.activeForeground'?: string;
-  /** Foreground color of the command center when the window is inactive */
-  'commandCenter.inactiveForeground'?: string;
-  /** Background color of the command center */
+  /** Background color of the Command Center. */
   'commandCenter.background'?: string;
-  /** Active background color of the command center */
+  /** Active background color of the Command Center. */
   'commandCenter.activeBackground'?: string;
-  /** Border color of the command center */
+  /** Border color of the Command Center. */
   'commandCenter.border'?: string;
-  /** Border color of the command center when the window is inactive */
+  /** Foreground color of the Command Center when the window is inactive. */
+  'commandCenter.inactiveForeground'?: string;
+  /** Border color of the Command Center when the window is inactive. */
   'commandCenter.inactiveBorder'?: string;
+  /** Active border color of the command center. */
+  'commandCenter.activeBorder'?: string;
 }
 
 export interface NotificationColors {
@@ -905,23 +1008,31 @@ export interface BannerColors {
 }
 
 export interface ExtensionsColors {
-  /* Extension view button foreground color (for example Install button). */
+  /** Extension view button foreground color (for example Install button). */
   'extensionButton.prominentForeground'?: string;
-  /* Extension view button background color. */
+  /** Extension view button background color. */
   'extensionButton.prominentBackground'?: string;
-  /* Extension view button background hover color. */
+  /** Extension view button background hover color. */
   'extensionButton.prominentHoverBackground'?: string;
-  /* Background color for the remote badge in the extensions view. */
+  /** Button background color for extension actions. */
+  'extensionButton.background'?: string;
+  /** Button foreground color for extension actions. */
+  'extensionButton.foreground'?: string;
+  /** Button background hover color for extension actions. */
+  'extensionButton.hoverBackground'?: string;
+  /** Button separator color for extension actions. */
+  'extensionButton.separator'?: string;
+  /** Background color for the remote badge in the extensions view. */
   'extensionBadge.remoteBackground'?: string;
-  /* Foreground color for the remote badge in the extensions view. */
+  /** Foreground color for the remote badge in the extensions view. */
   'extensionBadge.remoteForeground'?: string;
-  /* The icon color for extension ratings. */
+  /** The icon color for extension ratings. */
   'extensionIcon.starForeground'?: string;
-  /* The icon color for extension verified publisher. */
+  /** The icon color for extension verified publisher. */
   'extensionIcon.verifiedForeground'?: string;
-  /* The icon color for pre-release extension. */
+  /** The icon color for pre-release extension. */
   'extensionIcon.preReleaseForeground'?: string;
-  /* The icon color for extension sponsor. */
+  /** The icon color for extension sponsor. */
   'extensionIcon.sponsorForeground'?: string;
 }
 
@@ -1005,6 +1116,8 @@ export interface IntegratedTerminalColors {
   'terminal.selectionBackground'?: string;
   /** The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied. */
   'terminal.selectionForeground'?: string;
+  /** The selection background color of the terminal when it does not have focus. */
+  'terminal.inactiveSelectionBackground'?: string;
   /** Color of the current search match in the terminal. The color must not be opaque so as not to hide underlying terminal content. */
   'terminal.findMatchBackground'?: string;
   /** Border color of the current search match in the terminal. */
@@ -1013,6 +1126,8 @@ export interface IntegratedTerminalColors {
   'terminal.findMatchHighlightBackground'?: string;
   /** Border color of the other search matches in the terminal. */
   'terminal.findMatchHighlightBorder'?: string;
+  /** Color of the highlight when hovering a link in the terminal. */
+  'terminal.hoverHighlightBackground'?: string;
   /** The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor. */
   'terminalCursor.background'?: string;
   /** The foreground color of the terminal cursor. */
@@ -1046,27 +1161,27 @@ export interface DebugColors {
   'editor.inlineValuesForeground'?: string;
   /** Color for the debug inline value background. */
   'editor.inlineValuesBackground'?: string;
-  /** Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception */
+  /** Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception. */
   'debugView.exceptionLabelForeground'?: string;
-  /** Background color for a label shown in the CALL STACK view when the debugger breaks on an exception */
+  /** Background color for a label shown in the CALL STACK view when the debugger breaks on an exception. */
   'debugView.exceptionLabelBackground'?: string;
-  /** Foreground color for a label in the CALL STACK view showing the current session's or thread's state */
+  /** Foreground color for a label in the CALL STACK view showing the current session's or thread's state. */
   'debugView.stateLabelForeground'?: string;
-  /** Background color for a label in the CALL STACK view showing the current session's or thread's state */
+  /** Background color for a label in the CALL STACK view showing the current session's or thread's state. */
   'debugView.stateLabelBackground'?: string;
-  /** Color used to highlight value changes in the debug views (ie. in the Variables view) */
+  /** Color used to highlight value changes in the debug views (such as in the Variables view). */
   'debugView.valueChangedHighlight'?: string;
-  /** Foreground color for the token names shown in debug views (ie. the Variables or Watch view) */
+  /** Foreground color for the token names shown in debug views (such as in the Variables or Watch view). */
   'debugTokenExpression.name'?: string;
-  /** Foreground color for the token values shown in debug views */
+  /** Foreground color for the token values shown in debug views. */
   'debugTokenExpression.value'?: string;
-  /** Foreground color for strings in debug views */
+  /** Foreground color for strings in debug views. */
   'debugTokenExpression.string'?: string;
-  /** Foreground color for booleans in debug views */
+  /** Foreground color for booleans in debug views. */
   'debugTokenExpression.boolean'?: string;
-  /** Foreground color for numbers in debug views */
+  /** Foreground color for numbers in debug views. */
   'debugTokenExpression.number'?: string;
-  /** Foreground color for expression errors in debug views */
+  /** Foreground color for expression errors in debug views. */
   'debugTokenExpression.error'?: string;
 }
 
@@ -1102,10 +1217,6 @@ export interface TestingColors {
 export interface WelcomePageColors {
   /** Background color for the Welcome page. */
   'welcomePage.background'?: string;
-  /** Background color for the buttons on the Welcome page. */
-  'welcomePage.buttonBackground'?: string;
-  /** Hover background color for the buttons on the Welcome page. */
-  'welcomePage.buttonHoverBackground'?: string;
   /** Foreground color for the Welcome page progress bars. */
   'welcomePage.progress.background'?: string;
   /** Background color for the Welcome page progress bars. */
@@ -1114,10 +1225,12 @@ export interface WelcomePageColors {
   'welcomePage.tileBackground'?: string;
   /** Hover background color for the tiles on the Get Started. */
   'welcomePage.tileHoverBackground'?: string;
-  /** Shadow color for the Welcome page walkthrough category buttons. */
-  'welcomePage.tileShadow.'?: string;
+  /** Border color for the tiles on the Get Started page. */
+  'welcomePage.tileBorder'?: string;
   /** Background color for the embedded editors on the Interactive Playground. */
   'walkThrough.embeddedEditorBackground'?: string;
+  /** Foreground color of the heading of each walkthrough step. */
+  'walkthrough.stepTitle.foreground'?: string;
 }
 
 export interface SourceControlColors {
@@ -1189,6 +1302,8 @@ export interface SettingsEditorColors {
   'settings.headerBorder'?: string;
   /** The color of the Settings editor splitview sash border. */
   'settings.sashBorder'?: string;
+  /** The foreground color for a section header or hovered title. */
+  'settings.settingsHeaderHoverForeground'?: string;
 }
 
 export interface BreadcrumbsColors {
@@ -1328,6 +1443,8 @@ export interface DebugIconsColors {
 }
 
 export interface NotebookColors {
+  /** Notebook background color. */
+  'notebook.editorBackground'?: string;
   /** The border color for notebook cells. */
   'notebook.cellBorderColor'?: string;
   /** The background color of a cell when the cell is hovered. */
@@ -1342,7 +1459,7 @@ export interface NotebookColors {
   'notebook.cellEditorBackground'?: string;
   /** The background color of a cell when the cell is focused. */
   'notebook.focusedCellBackground'?: string;
-  /** The color of the cell's top and bottom border when the cell is focused. */
+  /** The color of the cell's focus indicator borders when the cell is focused. */
   'notebook.focusedCellBorder'?: string;
   /** The color of the notebook cell editor border. */
   'notebook.focusedEditorBorder'?: string;
@@ -1372,6 +1489,8 @@ export interface NotebookColors {
   'notebookStatusRunningIcon.foreground'?: string;
   /** The success icon color of notebook cells in the cell status bar. */
   'notebookStatusSuccessIcon.foreground'?: string;
+  /** The color of the running cell decoration in the notebook editor overview ruler. */
+  'notebookEditorOverviewRuler.runningCellForeground'?: string;
 }
 
 export interface ChartColors {
@@ -1398,6 +1517,13 @@ export interface PortsColors {
   'ports.iconRunningProcessForeground'?: string;
 }
 
+export interface CommentsViewColors {
+  /** Icon color for resolved comments. */
+  'commentsView.resolvedIcon'?: string;
+  /** Icon color for unresolved comments. */
+  'commentsView.unresolvedIcon'?: string;
+}
+
 /**
  * Colors in the workbench
  * doc: {@link https://code.visualstudio.com/api/references/theme-color}
@@ -1417,11 +1543,14 @@ export interface UiColor
     ProgressBar,
     ListsAndTrees,
     ActivityBar,
+    Profile,
     SideBar,
     Minimap,
     EditorGroupsAndTabs,
     EditorColors,
     DiffEditorColor,
+    ChatColors,
+    InlineChatColors,
     EditorWidgetColor,
     PeekViewColors,
     MergeConflictsColors,
@@ -1449,4 +1578,5 @@ export interface UiColor
     DebugIconsColors,
     NotebookColors,
     ChartColors,
-    PortsColors {}
+    PortsColors,
+    CommentsViewColors {}
