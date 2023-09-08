@@ -900,6 +900,10 @@ export interface StatusBarColors {
   'statusBarItem.remoteBackground'?: string;
   /** Foreground color for the remote indicator on the status bar. */
   'statusBarItem.remoteForeground'?: string;
+  /** Background color for the remote indicator on the status bar when hovering. */
+  'statusBarItem.remoteHoverBackground'?: string;
+  /** Foreground color for the remote indicator on the status bar when hovering. */
+  'statusBarItem.remoteHoverForeground'?: string;
   /** Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions. */
   'statusBarItem.errorBackground'?: string;
   /** Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions. */
@@ -908,16 +912,24 @@ export interface StatusBarColors {
   'statusBarItem.warningBackground'?: string;
   /** Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window. */
   'statusBarItem.warningForeground'?: string;
+  /** Status bar warning items background color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window. */
+  'statusBarItem.warningHoverBackground'?: string;
+  /** Status bar warning items foreground color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window. */
+  'statusBarItem.warningHoverForeground'?: string;
   /** Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window. */
   'statusBarItem.compactHoverBackground'?: string;
   /** Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window. */
   'statusBarItem.focusBorder'?: string;
   /** Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window. */
   'statusBar.focusBorder'?: string;
-  /** Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window. */
-  'statusBar.offlineBackground'?: string;
-  /** Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window. */
-  'statusBar.offlineForeground'?: string;
+  /** Status bar item background color when the workbench is offline. */
+  'statusBarItem.offlineBackground'?: string;
+  /** Status bar item foreground color when the workbench is offline. */
+  'statusBarItem.offlineForeground'?: string;
+  /** Status bar item foreground hover color when the workbench is offline. */
+  'statusBarItem.offlineHoverForeground'?: string;
+  /** Status bar item background hover color when the workbench is offline. */
+  'statusBarItem.offlineHoverBackground'?: string;
 }
 
 export interface TitleBarColors {
