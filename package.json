@@ -25,10 +25,10 @@
     "types": "./dist/index.d.ts"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
-    "update": "yarn upgrade-interactive",
+    "update": "ncu -i --format group",
     "lint": "prettier src -w -u",
     "clean": "rm -fr dist",
     "test:tsc": "tsc --noEmit",
