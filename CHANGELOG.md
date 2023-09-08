@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/t7yang/vscode-typed-theme-generator/compare/2.0.6...3.0.0) (2023-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* min support to node v18
+
+* min support to node v18 ([84034ec](https://github.com/t7yang/vscode-typed-theme-generator/commit/84034ec93714809f6afa9bd7a90ee683a5525a76))
+
 ### [2.0.6](https://github.com/t7yang/vscode-typed-theme-generator/compare/2.0.5...2.0.6) (2023-07-30)
 
 ### [2.0.5](https://github.com/t7yang/vscode-typed-theme-generator/compare/2.0.4...2.0.5) (2023-07-30)
