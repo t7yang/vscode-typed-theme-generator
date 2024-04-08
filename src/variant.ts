@@ -42,7 +42,7 @@ export const createVariantUiColor = <Label extends ObjKey, Var extends ObjKey>(
   >;
 
   Object.entries(variants).forEach(variantEntry => {
-    const [label, VAR] = variantEntry as [Label, typeof variants[Label]];
+    const [label, VAR] = variantEntry as [Label, (typeof variants)[Label]];
     const themeUiColor = variantUiColor[label];
 
     Object.entries(themeUiColor).forEach(themeEntry => {
@@ -76,7 +76,7 @@ export const createVariantTokenColors = <Label extends ObjKey, Var extends ObjKe
   ) as Record<Label, TokenColor[]>;
 
   Object.entries(variants).forEach(variantEntry => {
-    const [label, VAR] = variantEntry as [Label, typeof variants[Label]];
+    const [label, VAR] = variantEntry as [Label, (typeof variants)[Label]];
 
     variantTokenColors[label].forEach(tokenColor => {
       if (tokenColor.settings.foreground && !isHex(tokenColor.settings.foreground)) {
@@ -105,7 +105,7 @@ export const createVariantSemanticTokenColors = <Label extends ObjKey, Var exten
   >;
 
   Object.entries(variants).forEach(variantEntry => {
-    const [label, vr] = variantEntry as [Label, typeof variants[Label]];
+    const [label, vr] = variantEntry as [Label, (typeof variants)[Label]];
     const semanticColors: SemanticTokenColors = variantStc[label];
 
     Object.entries(semanticColors).forEach(entry => {
