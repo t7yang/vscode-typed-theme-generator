@@ -1,7 +1,7 @@
 {
   "name": "vscode-typed-theme-generator",
   "description": "VSCode strong typing theme generator",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "author": "t7yang <t7yang@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/t7yang/vscode-typed-theme-generator",
