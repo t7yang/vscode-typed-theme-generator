@@ -268,6 +268,8 @@ export interface Profile {
   'profileBadge.background'?: string;
   /** Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar. */
   'profileBadge.foreground'?: string;
+  /** The color of the Profiles editor splitview sash border. */
+  'profiles.sashBorder'?: string;
 }
 
 export interface SideBar {
@@ -289,6 +291,14 @@ export interface SideBar {
   'sideBarSectionHeader.border'?: string;
   /** Border color between the activity bar at the top/bottom and the views. */
   'sideBarActivityBarTop.border'?: string;
+  /** Side bar title background color. The side bar is the container for views like explorer and search. */
+  'sideBarTitle.background'?: string;
+  /** Background color of sticky scroll in the side bar. */
+  'sideBarStickyScroll.background'?: string;
+  /** Border color of sticky scroll in the side bar. */
+  'sideBarStickyScroll.border'?: string;
+  /** Shadow color of sticky scroll in the side bar. */
+  'sideBarStickyScroll.shadow'?: string;
 }
 
 export interface Minimap {
@@ -355,6 +365,12 @@ export interface EditorGroupsAndTabs {
   'tab.border'?: string;
   /** Bottom border for the active tab. */
   'tab.activeBorder'?: string;
+  /** Border to the top of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups. */
+  'tab.selectedBorderTop'?: string;
+  /** Background of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups. */
+  'tab.selectedBackground'?: string;
+  /** Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups. */
+  'tab.selectedForeground'?: string;
   /** Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups. */
   'tab.dragAndDropBorder'?: string;
   /** Bottom border for the active tab in an inactive editor group. */
@@ -426,6 +442,8 @@ export interface EditorColors {
   'editorMultiCursor.secondary.foreground'?: string;
   /** The background color of secondary editor cursors when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor. */
   'editorMultiCursor.secondary.background'?: string;
+  /** Foreground color of the placeholder text in the editor. */
+  'editor.placeholder.foreground'?: string;
   /** Color of the editor selection. */
   'editor.selectionBackground'?: string;
   /** Color of the selected text for high contrast. */
@@ -450,6 +468,10 @@ export interface EditorColors {
   'editor.wordHighlightTextBorder'?: string;
   /** Color of the current search match. */
   'editor.findMatchBackground'?: string;
+  /** Text color of the current search match. */
+  'editor.findMatchForeground'?: string;
+  /** Foreground color of the other search matches. */
+  'editor.findMatchHighlightForeground'?: string;
   /** Color of the other search matches. The color must not be opaque so as not to hide underlying decorations. */
   'editor.findMatchHighlightBackground'?: string;
   /** Color the range limiting the search (Enable 'Find in Selection' in the find widget). The color must not be opaque so as not to hide underlying decorations. */
@@ -588,6 +610,8 @@ export interface EditorColors {
   'editorBracketPairGuide.background6'?: string;
   /** Background color for folded ranges. The color must not be opaque so as not to hide underlying decorations. */
   'editor.foldBackground'?: string;
+  /** Color of the collapsed text after the first line of a folded range. */
+  'editor.foldPlaceholderForeground'?: string;
   /** Background color of the editor overview ruler. Only used when the minimap is enabled and placed on the right side of the editor. */
   'editorOverviewRuler.background'?: string;
   /** Color of the overview ruler border. */
@@ -745,12 +769,12 @@ export interface ChatColors {
 export interface InlineChatColors {
   /** Background color of the interactive editor widget. */
   'inlineChat.background'?: string;
+  /** Foreground color of the interactive editor widget. */
+  'inlineChat.foreground'?: string;
   /** Border color of the interactive editor widget. */
   'inlineChat.border'?: string;
   /** Shadow color of the interactive editor widget. */
   'inlineChat.shadow'?: string;
-  /** Background highlighting of the current interactive region. Must be transparent. */
-  'inlineChat.regionHighlight'?: string;
   /** Border color of the interactive editor input. */
   'inlineChatInput.border'?: string;
   /** Border color of the interactive editor input when focused. */
@@ -952,6 +976,12 @@ export interface PanelColors {
   'panelSectionHeader.background'?: string;
   /** Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal. */
   'panelSectionHeader.foreground'?: string;
+  /** Background color of sticky scroll in the panel. */
+  'panelStickyScroll.background'?: string;
+  /** Border color of sticky scroll in the panel. */
+  'panelStickyScroll.border'?: string;
+  /** Shadow color of sticky scroll in the panel. */
+  'panelStickyScroll.shadow'?: string;
   /** Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal. */
   'panelSectionHeader.border'?: string;
   /** Output view background color. */
@@ -1261,8 +1291,12 @@ export interface IntegratedTerminalColors {
   'terminalOverviewRuler.findMatchForeground'?: string;
   /** The background color of the sticky scroll overlay in the terminal. */
   'terminalStickyScroll.background'?: string;
+  /** The border of the sticky scroll overlay in the terminal. */
+  'terminalStickyScroll.border'?: string;
   /** The background color of the sticky scroll overlay in the terminal when hovered. */
   'terminalStickyScrollHover.background'?: string;
+  /** Foreground color of the terminal initial hint. */
+  'terminal.initialHintForeground'?: string;
 }
 
 export interface DebugColors {
@@ -1300,6 +1334,8 @@ export interface DebugColors {
   'debugTokenExpression.number'?: string;
   /** Foreground color for expression errors in debug views. */
   'debugTokenExpression.error'?: string;
+  /** Foreground color for the token types shown in the debug views (ie. the Variables or Watch view). */
+  'debugTokenExpression.type'?: string;
 }
 
 export interface TestingColors {
