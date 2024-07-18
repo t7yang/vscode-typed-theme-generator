@@ -16,26 +16,25 @@
     "TypeScript"
   ],
   "sideEffect": false,
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "import": "./dist/es/index.js",
-    "require": "./dist/cjs/index.js",
-    "types": "./dist/index.d.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20"
   },
   "scripts": {
     "update": "ncu -i --format group",
     "lint": "prettier src -w -u",
-    "clean": "rm -fr dist",
     "test:tsc": "tsc --noEmit",
-    "build:dts": "tsc --emitDeclarationOnly",
-    "build:es": "swc src -d dist/es --config-file .swcrc",
-    "build:cjs": "swc src -d dist/cjs --config-file .swcrc -C module.type=commonjs",
-    "build:fresh": "npm run clean && npm run build:es && npm run build:cjs && npm run build:dts",
+    "build": "tsup",
     "prerelease": "standard-version -t ''"
   },
   "files": [
@@ -43,10 +42,9 @@
     "README.md"
   ],
   "devDependencies": {
-    "@swc/cli": "^0.3.12",
-    "@swc/core": "^1.4.12",
-    "@types/node": "^18.0.0",
-    "browserslist": "^4.23.0",
-    "standard-version": "^9.5.0"
+    "@types/node": "^20.14.10",
+    "standard-version": "^9.5.0",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3"
   }
 }

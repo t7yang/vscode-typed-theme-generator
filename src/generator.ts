@@ -1,5 +1,5 @@
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { vttgStringify, VttgStringify } from './stringify';
 import { VsCodeContributeTheme, VsCodeThemeMeta } from './theme';
 
