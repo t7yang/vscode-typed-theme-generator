@@ -61,6 +61,14 @@ export interface ActionColors {
   'toolbar.hoverOutline'?: string;
   /** Toolbar background when holding the mouse over actions */
   'toolbar.activeBackground'?: string;
+  /** Action List background color. */
+  'editorActionList.background'?: string;
+  /** Action List foreground color. */
+  'editorActionList.foreground'?: string;
+  /** Action List foreground color for the focused item. */
+  'editorActionList.focusForeground'?: string;
+  /** Action List background color for the focused item. */
+  'editorActionList.focusBackground'?: string;
 }
 
 export interface ButtonControl {
@@ -88,6 +96,20 @@ export interface ButtonControl {
   'checkbox.border'?: string;
   /** Border color of checkbox widget when the element it's in is selected. */
   'checkbox.selectBorder'?: string;
+  /** Foreground color of active radio option. */
+  'radio.activeForeground'?: string;
+  /** Background color of active radio option. */
+  'radio.activeBackground'?: string;
+  /** Border color of the active radio option. */
+  'radio.activeBorder'?: string;
+  /** Foreground color of inactive radio option. */
+  'radio.inactiveForeground'?: string;
+  /** Background color of inactive radio option. */
+  'radio.inactiveBackground'?: string;
+  /** Border color of the inactive radio option. */
+  'radio.inactiveBorder'?: string;
+  /** Background color of inactive active radio option when hovering. */
+  'radio.inactiveHoverBackground'?: string;
 }
 
 export interface DropdownControl {
@@ -261,6 +283,14 @@ export interface ActivityBar {
   'activityBarTop.background'?: string;
   /** Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar. */
   'activityBarTop.activeBackground'?: string;
+  /** Foreground color of the warning activity badge */
+  'activityWarningBadge.foreground'?: string;
+  /** Background color of the warning activity badge */
+  'activityWarningBadge.background'?: string;
+  /** Foreground color of the error activity badge */
+  'activityErrorBadge.foreground'?: string;
+  /** Background color of the error activity badge */
+  'activityErrorBadge.background'?: string;
 }
 
 export interface Profile {
@@ -293,6 +323,8 @@ export interface SideBar {
   'sideBarActivityBarTop.border'?: string;
   /** Side bar title background color. The side bar is the container for views like explorer and search. */
   'sideBarTitle.background'?: string;
+  /** Side bar title border color on the bottom, separating the title from the views. The side bar is the container for views like explorer and search. */
+  'sideBarTitle.border'?: string;
   /** Background color of sticky scroll in the side bar. */
   'sideBarStickyScroll.background'?: string;
   /** Border color of sticky scroll in the side bar. */
@@ -318,6 +350,8 @@ export interface Minimap {
   'minimap.foregroundOpacity'?: string;
   /** Minimap marker color for infos. */
   'minimap.infoHighlight'?: string;
+  /** Color of pending edit regions in the minimap. */
+  'minimap.chatEditHighlight'?: string;
   /** Minimap slider background color. */
   'minimapSlider.background'?: string;
   /** Minimap slider background color when hovering. */
@@ -330,6 +364,8 @@ export interface Minimap {
   'minimapGutter.modifiedBackground'?: string;
   /** Minimap gutter color for deleted content. */
   'minimapGutter.deletedBackground'?: string;
+  /** Minimap marker color for inline chat inserted content. */
+  'editorMinimap.inlineChatInserted'?: string;
 }
 
 export interface EditorGroupsAndTabs {
@@ -371,8 +407,6 @@ export interface EditorGroupsAndTabs {
   'tab.selectedBackground'?: string;
   /** Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups. */
   'tab.selectedForeground'?: string;
-  /** Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups. */
-  'tab.dragAndDropBorder'?: string;
   /** Bottom border for the active tab in an inactive editor group. */
   'tab.unfocusedActiveBorder'?: string;
   /** Top border for the active tab. */
@@ -444,6 +478,8 @@ export interface EditorColors {
   'editorMultiCursor.secondary.background'?: string;
   /** Foreground color of the placeholder text in the editor. */
   'editor.placeholder.foreground'?: string;
+  /** The border color for an IME composition. */
+  'editor.compositionBorder'?: string;
   /** Color of the editor selection. */
   'editor.selectionBackground'?: string;
   /** Color of the selected text for high contrast. */
@@ -704,6 +740,46 @@ export interface EditorColors {
   'editorCommentsWidget.rangeActiveBackground'?: string;
   /** Background color for comment reply input box. */
   'editorCommentsWidget.replyInputBackground'?: string;
+  /** Foreground color for the primary inline edit gutter indicator. */
+  'inlineEdit.gutterIndicator.primaryForeground'?: string;
+  /** Background color for the primary inline edit gutter indicator. */
+  'inlineEdit.gutterIndicator.primaryBackground'?: string;
+  /** Foreground color for the secondary inline edit gutter indicator. */
+  'inlineEdit.gutterIndicator.secondaryForeground'?: string;
+  /** Background color for the secondary inline edit gutter indicator. */
+  'inlineEdit.gutterIndicator.secondaryBackground'?: string;
+  /** Foreground color for the successful inline edit gutter indicator. */
+  'inlineEdit.gutterIndicator.successfulForeground'?: string;
+  /** Background color for the successful inline edit gutter indicator. */
+  'inlineEdit.gutterIndicator.successfulBackground'?: string;
+  /** Background color for the inline edit gutter indicator. */
+  'inlineEdit.gutterIndicator.background'?: string;
+  /** Foreground color for the inline edit indicator. */
+  'inlineEdit.indicator.foreground'?: string;
+  /** Background color for the inline edit indicator. */
+  'inlineEdit.indicator.background'?: string;
+  /** Border color for the inline edit indicator. */
+  'inlineEdit.indicator.border'?: string;
+  /** Background color for the original text in inline edits. */
+  'inlineEdit.originalBackground'?: string;
+  /** Background color for the modified text in inline edits. */
+  'inlineEdit.modifiedBackground'?: string;
+  /** Background color for the changed lines in the original text of inline edits. */
+  'inlineEdit.originalChangedLineBackground'?: string;
+  /** Overlay color for the changed text in the original text of inline edits. */
+  'inlineEdit.originalChangedTextBackground'?: string;
+  /** Background color for the changed lines in the modified text of inline edits. */
+  'inlineEdit.modifiedChangedLineBackground'?: string;
+  /** Overlay color for the changed text in the modified text of inline edits. */
+  'inlineEdit.modifiedChangedTextBackground'?: string;
+  /** Border color for the original text in inline edits. */
+  'inlineEdit.originalBorder'?: string;
+  /** Border color for the modified text in inline edits. */
+  'inlineEdit.modifiedBorder'?: string;
+  /** Border color for the inline edits widget over the original text when tab will accept it. */
+  'inlineEdit.tabWillAcceptBorder'?: string;
+  /** Background color for the inline edit word replacement view. */
+  'inlineEdit.wordReplacementView.background'?: string;
 }
 
 export interface DiffEditorColor {
@@ -754,8 +830,6 @@ export interface DiffEditorColor {
 export interface ChatColors {
   /** The border color of a chat request. */
   'chat.requestBorder'?: string;
-  /** The background color of a chat request. */
-  'chat.requestBackground'?: string;
   /** The background color of a chat slash command. */
   'chat.slashCommandBackground'?: string;
   /** The foreground color of a chat slash command. */
@@ -764,6 +838,8 @@ export interface ChatColors {
   'chat.avatarBackground'?: string;
   /** The foreground color of a chat avatar. */
   'chat.avatarForeground'?: string;
+  /** The foreground color of a chat edited file in the edited file list. */
+  'chat.editedFileForeground'?: string;
 }
 
 export interface InlineChatColors {
@@ -966,6 +1042,12 @@ export interface PanelColors {
   'panelTitle.activeForeground'?: string;
   /** Title color for the inactive panel. */
   'panelTitle.inactiveForeground'?: string;
+  /** Panel title border color on the bottom, separating the title from the views. Panels are shown below the editor area and contain views like output and integrated terminal. */
+  'panelTitle.border'?: string;
+  /** Panel title badge background color. Panels are shown below the editor area and contain views like output and integrated terminal. */
+  'panelTitleBadge.background'?: string;
+  /** Panel title badge foreground color. Panels are shown below the editor area and contain views like output and integrated terminal. */
+  'panelTitleBadge.foreground'?: string;
   /** Input box border for inputs in the panel. */
   'panelInput.border'?: string;
   /** Panel section border color used when multiple views are stacked horizontally in the panel. Panels are shown below the editor area and contain views like output and integrated terminal. */
@@ -1297,6 +1379,14 @@ export interface IntegratedTerminalColors {
   'terminalStickyScrollHover.background'?: string;
   /** Foreground color of the terminal initial hint. */
   'terminal.initialHintForeground'?: string;
+  /** The overview ruler left-side border color. */
+  'terminalOverviewRuler.border'?: string;
+  /** The foreground color of the terminal command guide that appears to the left of a command and its output on hover. */
+  'terminalCommandGuide.foreground'?: string;
+  /** The foreground color for an alias icon. These icons will appear in the terminal suggest widget */
+  'terminalSymbolIcon.aliasForeground'?: string;
+  /** The foreground color for an flag icon. These icons will appear in the terminal suggest widget */
+  'terminalSymbolIcon.flagForeground'?: string;
 }
 
 export interface DebugColors {
@@ -1399,6 +1489,12 @@ export interface TestingColors {
   'testing.coverCountBadgeBackground'?: string;
   /** Foreground for the badge indicating execution count */
   'testing.coverCountBadgeForeground'?: string;
+  /** Background color of test error messages shown inline in the editor. */
+  'testing.message.error.badgeBackground'?: string;
+  /** Border color of test error messages shown inline in the editor. */
+  'testing.message.error.badgeBorder'?: string;
+  /** Text color of test error messages shown inline in the editor. */
+  'testing.message.error.badgeForeground'?: string;
 }
 
 export interface WelcomePageColors {
@@ -1441,6 +1537,37 @@ export interface GitColors {
   'gitDecoration.conflictingResourceForeground'?: string;
   /** Color for submodule resources. */
   'gitDecoration.submoduleResourceForeground'?: string;
+  /** Color for the blame editor decoration. */
+  'git.blame.editorDecorationForeground'?: string;
+}
+
+export interface SourceCodeGraphColors {
+  /** History item hover label foreground color. */
+  'scmGraph.historyItemHoverLabelForeground'?: string;
+  /** Source control graph foreground color (1). */
+  'scmGraph.foreground1'?: string;
+  /** Source control graph foreground color (2). */
+  'scmGraph.foreground2'?: string;
+  /** Source control graph foreground color (3). */
+  'scmGraph.foreground3'?: string;
+  /** Source control graph foreground color (4). */
+  'scmGraph.foreground4'?: string;
+  /** Source control graph foreground color (5). */
+  'scmGraph.foreground5'?: string;
+  /** History item hover additions foreground color. */
+  'scmGraph.historyItemHoverAdditionsForeground'?: string;
+  /** History item hover deletions foreground color. */
+  'scmGraph.historyItemHoverDeletionsForeground'?: string;
+  /** History item reference color. */
+  'scmGraph.historyItemRefColor'?: string;
+  /** History item remote reference color. */
+  'scmGraph.historyItemRemoteRefColor'?: string;
+  /** History item base reference color. */
+  'scmGraph.historyItemBaseRefColor'?: string;
+  /** History item hover default label foreground color. */
+  'scmGraph.historyItemHoverDefaultLabelForeground'?: string;
+  /** History item hover default label background color. */
+  'scmGraph.historyItemHoverDefaultLabelBackground'?: string;
 }
 
 export interface SettingsEditorColors {
@@ -1692,6 +1819,12 @@ export interface ChartColors {
   'charts.green'?: string;
   /** Color for purple elements in charts. */
   'charts.purple'?: string;
+  /** Line color for the chart. */
+  'chart.line'?: string;
+  /** Axis color for the chart. */
+  'chart.axis'?: string;
+  /** Guide line for the chart. */
+  'chart.guide'?: string;
 }
 
 export interface PortsColors {
@@ -1711,20 +1844,26 @@ export interface ActionBarColor {
   'actionBar.toggledBackground'?: string;
 }
 
-export interface SimpleFindWidget {
+export interface SimpleFindWidgetColors {
   /** Border color of the sash border. */
   'simpleFindWidget.sashBorder'?: string;
 }
 
-export interface Scm {
-  /** History item additions foreground color. */
-  'scm.historyItemAdditionsForeground'?: string;
-  /** History item deletions foreground color. */
-  'scm.historyItemDeletionsForeground'?: string;
-  /** History item statistics border color. */
-  'scm.historyItemStatisticsBorder'?: string;
-  /** History item selected statistics border color. */
-  'scm.historyItemSelectedStatisticsBorder'?: string;
+export interface GaugeColors {
+  /** Gauge background color. */
+  'gauge.background'?: string;
+  /** Gauge foreground color. */
+  'gauge.foreground'?: string;
+  /** Gauge border color. */
+  'gauge.border'?: string;
+  /** Gauge warning background color. */
+  'gauge.warningBackground'?: string;
+  /** Gauge warning foreground color. */
+  'gauge.warningForeground'?: string;
+  /** Gauge error background color. */
+  'gauge.errorBackground'?: string;
+  /** Gauge error foreground color. */
+  'gauge.errorForeground'?: string;
 }
 
 /**
@@ -1774,6 +1913,7 @@ export interface UiColor
     TestingColors,
     WelcomePageColors,
     GitColors,
+    SourceCodeGraphColors,
     SettingsEditorColors,
     BreadcrumbsColors,
     SnippetsColors,
@@ -1784,5 +1924,5 @@ export interface UiColor
     PortsColors,
     CommentsViewColors,
     ActionBarColor,
-    SimpleFindWidget,
-    Scm {}
+    SimpleFindWidgetColors,
+    GaugeColors {}
